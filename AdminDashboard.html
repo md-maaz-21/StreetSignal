@@ -1,0 +1,127 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetSignal | Admin Dashboard</title>
+    <link rel="stylesheet" href="AdminDashboard.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="logo">🌳</span>
+            <div>
+                <h2>StreetSignal</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+
+        <nav>
+            <a class="active" href="#overview">Dashboard</a>
+            <a href="#reports">Manage Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="Dashboard.html">← Citizen Dashboard</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage and monitor community reports</p>
+            </div>
+            <div class="admin-user">
+                <span>🛡️</span>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Admin</small>
+                </div>
+            </div>
+        </header>
+
+        <section id="overview">
+            <h2>Overview</h2>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p>Total Reports</p>
+                    <h2 id="totalReports">0</h2>
+                </div>
+
+                <div class="stat-card pending">
+                    <p>Pending</p>
+                    <h2 id="pendingReports">0</h2>
+                </div>
+
+                <div class="stat-card progress">
+                    <p>In Progress</p>
+                    <h2 id="progressReports">0</h2>
+                </div>
+
+                <div class="stat-card resolved">
+                    <p>Resolved</p>
+                    <h2 id="resolvedReports">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="reports" class="reports-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Manage Reports</h2>
+                    <p>Review reports and update their status</p>
+                </div>
+
+                <button onclick="loadReports()">Refresh</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report ID</th>
+                            <th>Issue</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Update Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="reportTable">
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" class="empty-message">
+                No reports have been submitted yet.
+            </p>
+        </section>
+
+        <footer>
+            <span>🌳 StreetSignal Admin Panel</span>
+            <span>© 2026 StreetSignal</span>
+        </footer>
+
+        <!-- Report Details Modal -->
+        <div id="reportModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h2>Report Details</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div id="modalDetails"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="AdminDashboard.js"></script>
+</body>
+</html>

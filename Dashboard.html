@@ -1,0 +1,426 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetSignal | Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+           <div class="brand-icon">🌳</div>
+            <div>
+                <h2>StreetSignal</h2>
+                <span>Community Platform</span>
+            </div>
+        </div>
+
+        <div class="nav-heading">MENU</div>
+
+        <nav class="navigation">
+            <button class="nav-item active" data-page="dashboard">
+                <span>▦</span> Dashboard
+            </button>
+            <button class="nav-item" data-page="report">
+                <span>＋</span> Report an Issue
+            </button>
+            <button class="nav-item" data-page="reports">
+                <span>▤</span> My Reports
+            </button>
+            <button class="nav-item" data-page="suggestions">
+                <span>✧</span> Suggestions
+            </button>
+            <button class="nav-item" data-page="notifications">
+                <span>♧</span> Notifications
+                <span class="nav-count" id="notification-count">0</span>
+            </button>
+            <button class="nav-item" data-page="profile">
+                <span>◉</span> My Profile
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <div class="help-icon">?</div>
+                <h4>Need Help?</h4>
+                <p>Help make your community better.</p>
+                <button data-page="suggestions">Share an idea</button>
+            </div>
+
+            <button class="logout-btn" id="logout-btn">
+                ⇥ &nbsp; Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+
+            <div class="topbar-title">
+                <h3 id="page-heading">Dashboard</h3>
+                <p>Welcome to your community portal</p>
+            </div>
+
+            <div class="topbar-right">
+                <button class="icon-button" data-page="notifications">♧</button>
+                <div class="user-mini">
+                    <div class="avatar" id="top-avatar">U</div>
+                    <div>
+                        <strong id="top-name">User</strong>
+                        <small>Citizen</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-area">
+
+            <!-- DASHBOARD PAGE -->
+            <section class="page active" id="dashboard-page">
+
+                <div class="welcome-banner">
+                    <div>
+                        <span class="welcome-label">COMMUNITY FIRST</span>
+                        <h1>Make Your Community Better.</h1>
+                        <p>Report local problems and help create positive change.</p>
+                        <button class="primary-btn" data-page="report">
+                            + Report an Issue
+                        </button>
+                    </div>
+                    <div class="banner-art">🏙️</div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Overview</h2>
+                        <p>Your community activity at a glance</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green">▤</div>
+                        <p>Total Reports</p>
+                        <h2 id="total-reports">0</h2>
+                        <small>Reports submitted by you</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">◷</div>
+                        <p>Pending</p>
+                        <h2 id="pending-reports">0</h2>
+                        <small>Awaiting attention</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon blue">↻</div>
+                        <p>In Progress</p>
+                        <h2 id="progress-reports">0</h2>
+                        <small>Currently being addressed</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">✓</div>
+                        <p>Resolved</p>
+                        <h2 id="resolved-reports">0</h2>
+                        <small>Successfully resolved</small>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Reports</h2>
+                        <p>Keep track of your latest submissions</p>
+                    </div>
+                    <button class="text-btn" data-page="reports">View All →</button>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Report ID</th>
+                                    <th>Issue</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-reports">
+                                <tr>
+                                    <td colspan="5" class="empty-cell">
+                                        No reports submitted yet.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div>
+                        <span class="welcome-label">YOUR CONTRIBUTION MATTERS</span>
+                        <h2>Small actions create big changes.</h2>
+                        <p>Every report and suggestion is a step towards a better neighbourhood.</p>
+                    </div>
+                    <div class="impact-icon">🌱</div>
+                </div>
+
+            </section>
+
+            <!-- REPORT AN ISSUE PAGE -->
+            <section class="page" id="report-page">
+
+                <div class="page-intro">
+                    <h1>Report an Issue</h1>
+                    <p>Tell us about a problem in your community.</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-title">
+                        <div class="form-title-icon">＋</div>
+                        <div>
+                            <h2>Issue Details</h2>
+                            <p>Provide accurate information about the issue.</p>
+                        </div>
+                    </div>
+
+                    <form id="report-form">
+
+                        <div class="form-group">
+                            <label for="issue-title">Issue Title *</label>
+                            <input type="text" id="issue-title"
+                                placeholder="Example: Damaged road near school"
+                                maxlength="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue-category">Issue Category *</label>
+                            <select id="issue-category" required>
+                                <option value="">Choose a category</option>
+                                <option>Road Damage</option>
+                                <option>Garbage Management</option>
+                                <option>Water Supply</option>
+                                <option>Street Light</option>
+                                <option>Drainage Problem</option>
+                                <option>Public Safety</option>
+                                <option>Electricity</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue-location">Location *</label>
+                            <input type="text" id="issue-location"
+                                placeholder="Enter street, area or landmark"
+                                maxlength="200" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue-description">Description *</label>
+                            <textarea id="issue-description"
+                                placeholder="Explain the issue in detail..."
+                                maxlength="2000" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue-image">Upload Photograph</label>
+                            <input type="file" id="issue-image" accept="image/*">
+                            <small>Optional. Maximum image size: 1.5 MB.</small>
+                            <div id="image-preview"></div>
+                        </div>
+
+                        <div id="report-message" class="form-message"></div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="secondary-btn">Clear Form</button>
+                            <button type="submit" class="primary-btn">
+                                Submit Report →
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </section>
+
+            <!-- MY REPORTS PAGE -->
+            <section class="page" id="reports-page">
+
+                <div class="page-intro">
+                    <h1>My Reports</h1>
+                    <p>View and track the issues you have submitted.</p>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="search" id="report-search"
+                        placeholder="Search reports...">
+
+                    <select id="status-filter">
+                        <option value="All">All Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+
+                <div class="reports-container" id="reports-container">
+                    <div class="empty-state">
+                        <div>📋</div>
+                        <h3>No Reports Yet</h3>
+                        <p>Your submitted reports will appear here.</p>
+                        <button class="primary-btn" data-page="report">
+                            Submit Your First Report
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SUGGESTIONS PAGE -->
+            <section class="page" id="suggestions-page">
+
+                <div class="page-intro">
+                    <h1>Community Suggestions</h1>
+                    <p>Share your ideas to improve your neighbourhood.</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-title">
+                        <div class="form-title-icon">✧</div>
+                        <div>
+                            <h2>Share Your Idea</h2>
+                            <p>Your suggestions can make a difference.</p>
+                        </div>
+                    </div>
+
+                    <form id="suggestion-form">
+
+                        <div class="form-group">
+                            <label for="suggestion-title">Suggestion Title *</label>
+                            <input type="text" id="suggestion-title"
+                                placeholder="Example: Install more dustbins"
+                                required maxlength="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestion-category">Category *</label>
+                            <select id="suggestion-category" required>
+                                <option value="">Select category</option>
+                                <option>Cleanliness</option>
+                                <option>Road Development</option>
+                                <option>Environment</option>
+                                <option>Public Safety</option>
+                                <option>Transportation</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestion-description">Your Suggestion *</label>
+                            <textarea id="suggestion-description"
+                                placeholder="Describe your idea..."
+                                required maxlength="2000"></textarea>
+                        </div>
+
+                        <div id="suggestion-message" class="form-message"></div>
+
+                        <button type="submit" class="primary-btn">
+                            Submit Suggestion →
+                        </button>
+
+                    </form>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Your Suggestions</h2>
+                        <p>Ideas you have shared</p>
+                    </div>
+                </div>
+
+                <div id="suggestions-container"></div>
+
+            </section>
+
+            <!-- NOTIFICATIONS PAGE -->
+            <section class="page" id="notifications-page">
+
+                <div class="page-intro">
+                    <h1>Notifications</h1>
+                    <p>Stay updated about your activity.</p>
+                </div>
+
+                <div id="notifications-container" class="notifications-container">
+                    <div class="empty-state">
+                        <div>🔔</div>
+                        <h3>No Notifications</h3>
+                        <p>Updates about your activity will appear here.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section class="page" id="profile-page">
+
+                <div class="page-intro">
+                    <h1>My Profile</h1>
+                    <p>View your account information.</p>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-avatar" id="profile-avatar">U</div>
+                    <h2 id="profile-name">User</h2>
+                    <p>StreetSignal Citizen</p>
+
+                    <div class="profile-details">
+                        <div>
+                            <span>Email Address</span>
+                            <strong id="profile-email">Not available</strong>
+                        </div>
+                        <div>
+                            <span>Account Type</span>
+                            <strong>Citizen</strong>
+                        </div>
+                        <div>
+                            <span>My Reports</span>
+                            <strong id="profile-report-count">0</strong>
+                        </div>
+                        <div>
+                            <span>My Suggestions</span>
+                            <strong id="profile-suggestion-count">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="visitor-counter">
+                <span>👥</span>
+                Total Visitors: <strong id="visitor-count">0</strong>
+            </div>
+            <div class="footer-brand">StreetSignal</div>
+            <div class="copyright">© 2026 StreetSignal. All rights reserved.</div>
+        </footer>
+
+    </main>
+</div>
+
+<script src="Dashboard.js"></script>
+</body>
+</html>
